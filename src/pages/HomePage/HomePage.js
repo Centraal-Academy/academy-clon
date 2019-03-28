@@ -5,12 +5,15 @@ import Cover from '../../components/dumps/Cover/Cover'
 import ErrorBoundary from '../../components/smarts/ErrorBoundary/ErrorBoundary'
 import SectionPrograms from './dumps/SectionPrograms/SectionPrograms'
 import ModalProgram from './dumps/ModalProgram/ModalProgam'
+import FormSuscription from './dumps/FormSuscription/FormSuscription'
+
 export class HomePage extends Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = { form: { email: '' } }
     this.clickProgram = this.clickProgram.bind(this)
     this._closeModal = this._closeModal.bind(this)
+    this.changeInput = this.changeInput.bind(this)
   }
 
   clickProgram (program) {
@@ -28,12 +31,17 @@ export class HomePage extends Component {
   _closeModal () {
     this.setState({ selected: null })
   }
+
+  changeInput (event) {
+    const { name, value } = event.target
+    this.setState({ form: { ...this.state.form, [name]: value } })
+  }
   render () {
     const { selected } = this.state
     const modal = (selected) ? (
       <ModalProgram
         header={selected.name} open onClose={this._closeModal}>
-        <span>{selected.name}</span>
+        <FormSuscription email={this.state.form.email} onChange={this.changeInput} />
       </ModalProgram>
     ) : null
     return (
