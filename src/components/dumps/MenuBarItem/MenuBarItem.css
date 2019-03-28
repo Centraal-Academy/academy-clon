@@ -1,0 +1,22 @@
+.MenuBarItem {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  max-height: 100%;
+}
+
+.MenuBarItem--enabled {
+  color: white;
+}
+
+.MenuBarItem--disabled {
+  color: grey;
+  cursor: none;
+}
+
+.MenuBarItem--enabled:hover {
+  border-bottom-color:blue;
+}
