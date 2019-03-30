@@ -1,20 +1,20 @@
 import React from 'react'
 import MenuBar from '../MenuBar/MenuBar'
-import MenuBarItem from '../MenuBarItem/MenuBarItem'
+import LinkNavigation from '../LinkNavigation/LinkNavigation'
 import './Page.css'
 export default function Page (props) {
   return (
     <div className='Page'>
       <MenuBar>
-        <MenuBarItem url='https://centraal.academy/about-us'>
+        <LinkNavigation path='/about'>
           Nosotros
-        </MenuBarItem>
-        <MenuBarItem url=''>
-         Programas
-        </MenuBarItem>
-        <MenuBarItem url='https://centraal.academy/open-class'>
+        </LinkNavigation>
+        <LinkNavigation path='/programas'>
+          programas
+        </LinkNavigation>
+        <LinkNavigation path='/open-class'>
           Open Class <span className='highlight--red'>Live</span>
-        </MenuBarItem>
+        </LinkNavigation>
       </MenuBar>
       {props.children}
     </div>
