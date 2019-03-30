@@ -6,7 +6,8 @@ import ErrorBoundary from '../../components/smarts/ErrorBoundary/ErrorBoundary'
 import SectionPrograms from './dumps/SectionPrograms/SectionPrograms'
 import ModalProgram from './dumps/ModalProgram/ModalProgam'
 import FormSuscription from './dumps/FormSuscription/FormSuscription'
-
+import ProtectComponent from '../../components/dumps/ProtectComponent/ProtectComponent'
+import Button from '../../components/dumps/Button/Button'
 export class HomePage extends Component {
   constructor (props) {
     super(props)
@@ -42,6 +43,7 @@ export class HomePage extends Component {
       <ModalProgram
         header={selected.name} open onClose={this._closeModal}>
         <FormSuscription email={this.state.form.email} onChange={this.changeInput} />
+        <ProtectComponent component={Button} />
       </ModalProgram>
     ) : null
     return (
