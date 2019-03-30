@@ -3,14 +3,13 @@ import 'firebase/auth'
 
 function initFirebase (firebase) {
   const config = {
-    apiKey: 'AIzaSyBYdi2DBaZWkyAf0nn2qRIALBg6xN2Qmrg',
-    authDomain: 'micro-course-react.firebaseapp.com',
-    databaseURL: 'https://micro-course-react.firebaseio.com',
-    projectId: 'micro-course-react',
-    storageBucket: 'micro-course-react.appspot.com',
-    messagingSenderId: '418796461829'
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
   }
-
   firebase.initializeApp(config)
 }
 
