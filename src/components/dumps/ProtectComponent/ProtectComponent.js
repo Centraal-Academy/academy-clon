@@ -27,8 +27,7 @@ class ProtectComponent extends Component {
   }
   render () {
     if (this.state.auth) {
-      const Component = this.props.component
-      return <Component />
+      return this.props.children
     }
     return (<LoginButton />)
   }
