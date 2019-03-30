@@ -43,7 +43,9 @@ export class HomePage extends Component {
       <ModalProgram
         header={selected.name} open onClose={this._closeModal}>
         <FormSuscription email={this.state.form.email} onChange={this.changeInput} />
-        <ProtectComponent component={Button} />
+        <ProtectComponent>
+          <Button>Submit</Button>
+        </ProtectComponent>
       </ModalProgram>
     ) : null
     return (
