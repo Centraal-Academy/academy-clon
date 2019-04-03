@@ -1,1 +1,3 @@
 export const ADD_PROGRAMS = 'ADD_PROGRAMS'
+
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER'
