@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import Page from '../../components/dumps/Page/Page'
 import Cover from '../../components/dumps/Cover/Cover'
-import ErrorBoundary from '../../components/smarts/ErrorBoundary/ErrorBoundary'
 import SectionPrograms from './dumps/SectionPrograms/SectionPrograms'
 import ModalProgramToSuscription from './smarts/ModalProgramToSuscription'
 import { connect } from 'react-redux'
@@ -26,9 +25,7 @@ export class HomePage extends Component {
   render () {
     return (
       <Page>
-        <ErrorBoundary>
-          <Cover src='https://centraal.academy/images/cover-images/homepage__cover.jpg' />
-        </ErrorBoundary>
+        <Cover src='https://centraal.academy/images/cover-images/homepage__cover.jpg' />
         <SectionPrograms programs={this.props.programs} onClick={this.clickProgram} />
         <ModalProgramToSuscription />
       </Page>
