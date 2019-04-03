@@ -8,6 +8,8 @@ import ModalProgram from './dumps/ModalProgram/ModalProgam'
 import FormSuscription from './dumps/FormSuscription/FormSuscription'
 import ProtectComponent from '../../components/dumps/ProtectComponent/ProtectComponent'
 import Button from '../../components/dumps/Button/Button'
+import { connect } from 'react-redux'
+import { addPrograms } from '../../store/actions'
 export class HomePage extends Component {
   constructor (props) {
     super(props)
@@ -26,7 +28,7 @@ export class HomePage extends Component {
   componentDidMount () {
     fetch('http://localhost:3001/programs')
       .then(response => response.json())
-      .then(programs => this.setState({ programs }))
+      .then(programs => this.props.dispatch(addPrograms(programs)))
   }
 
   _closeModal () {
@@ -53,9 +55,17 @@ export class HomePage extends Component {
         <ErrorBoundary>
           <Cover src='https://centraal.academy/images/cover-images/homepage__cover.jpg' />
         </ErrorBoundary>
-        <SectionPrograms programs={this.state.programs} onClick={this.clickProgram} />
+        <SectionPrograms programs={this.props.programs} onClick={this.clickProgram} />
         {modal}
       </Page>
     )
   }
 }
+
+function mapStateToProps (state, props) {
+  return {
+    programs: state.programs
+  }
+}
+
+export default connect(mapStateToProps)(HomePage)
