@@ -64,7 +64,7 @@ export class HomePage extends Component {
 
 function mapStateToProps (state, props) {
   return {
-    programs: state.programs
+    programs: state.home.programs
   }
 }
 
