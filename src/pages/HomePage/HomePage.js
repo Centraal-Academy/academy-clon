@@ -1,11 +1,10 @@
-/* global fetch */
 import React, { Component } from 'react'
 import Page from '../../components/dumps/Page/Page'
 import Cover from '../../components/dumps/Cover/Cover'
 import SectionPrograms from './dumps/SectionPrograms/SectionPrograms'
 import ModalProgramToSuscription from './smarts/ModalProgramToSuscription'
 import { connect } from 'react-redux'
-import { addPrograms, setSelectedProgram } from '../../store/actions'
+import { setSelectedProgram, fetchPrograms } from '../../store/actions'
 export class HomePage extends Component {
   constructor (props) {
     super(props)
@@ -18,9 +17,8 @@ export class HomePage extends Component {
   }
 
   componentDidMount () {
-    fetch('http://localhost:3001/programs')
-      .then(response => response.json())
-      .then(programs => this.props.dispatch(addPrograms(programs)))
+    const action = fetchPrograms()
+    this.props.dispatch(action)
   }
   render () {
     return (
