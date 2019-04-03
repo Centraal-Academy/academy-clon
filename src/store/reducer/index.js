@@ -1,8 +1,9 @@
-import programsReducer from './programsReducer'
-
+import homeReducer from './homeReducer'
+import authReducer from './authReducer'
 export default function rootReducer (state = {}, action) {
   return {
     ...state,
-    programs: programsReducer(state.programs, action)
+    auth: authReducer(state.auth, action),
+    home: homeReducer(state.home, action)
   }
 }
