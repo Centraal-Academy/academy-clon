@@ -1,7 +1,7 @@
 /* global fetch */
 import { ADD_PROGRAMS, AUTHENTICATE_USER, SET_SELECTED_PROGRAM } from './types'
 
-export function addPrograms (programs) {
+export function addPrograms (programs = []) {
   return {
     type: ADD_PROGRAMS,
     payload: programs
